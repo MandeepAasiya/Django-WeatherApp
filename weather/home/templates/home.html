@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Django weather app</title>
+        <style>* 
+        .listing {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .content_wrapper {
+            padding: 3% 0;
+            margin: 0 auto;
+            width: 400px;
+        }</style>
+    </head>
+    <body>
+        <div class="content_wrapper" id="app">
+            <div>
+                <h1>
+                    Weather
+                    <div class="date"></div>
+                </h1>
+        
+                <form method="get">
+                    {% csrf_token %}
+                    <input class="form-control" placeholder="Enter a city name" name="city">
+                    <button class="" type="submit">Submit</button>
+                </form>
+
+                <br></br>
+                <table class="listing" summary="Task list">
+                    <tr class="header">
+                        <th>City: </th>
+                        <td class="center">{{data.city}}</td>
+                    </tr>
+                    <tr class="header">
+                        <th>Temperature: </th>
+                        <td class="center">{{data.celcius_temperature}} °C / {{data.kelvin_temperature}} K</td>
+                    </tr>
+                    <tr class="header">
+                        <th>Weather: </th>
+                        <td class="center">{{data.weather}}</td>
+                    </tr>
+                    <tr class="header">
+                        <th>Description: </th>
+                        <td class="center">{{data.description}}</td>
+                    </tr>
+                    <tr class="header">
+                        <th>Humidity: </th>
+                        <td class="center">{{data.humidity}}</td>
+                    </tr>
+                    <tr class="header">
+                        <th>Pressure: </th>
+                        <td class="center">{{data.pressure}} Pa</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
